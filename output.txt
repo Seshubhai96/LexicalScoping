@@ -1,0 +1,50 @@
+source('C:/Users/Seshubhai/makeCacheMatrix.R')
+pmatrix <- makeCacheMatrix(matrix(1:16,  nrow = 4, ncol = 4))
+> pmatrix$get()
+     [,1] [,2] [,3] [,4]
+[1,]    1    5    9   13
+[2,]    2    6   10   14
+[3,]    3    7   11   15
+[4,]    4    8   12   16
+> pmatrix$getInverse()
+NULL
+> pmatrix <- makeCacheMatrix(matrix(1:4,  nrow = 2, ncol = 2))
+> pmatrix
+$set
+function(y){
+            x <<- y
+            inv <<- NULL
+      }
+<bytecode: 0x0000021f16914e10>
+<environment: 0x0000021f13306f10>
+
+$get
+function() {x}
+<bytecode: 0x0000021f176b0828>
+<environment: 0x0000021f13306f10>
+
+$setInverse
+function(inverse) {inv <<- inverse}
+<bytecode: 0x0000021f175583c0>
+<environment: 0x0000021f13306f10>
+
+$getInverse
+function() {inv}
+<bytecode: 0x0000021f13380e68>
+<environment: 0x0000021f13306f10>
+
+> pmatrix$get()
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+> pmatrix$getInverse()
+NULL
+> cacheSolve(pmatrix)
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+> pmatrix$getInverse()
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+> 
